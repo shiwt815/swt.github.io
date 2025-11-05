@@ -4,61 +4,377 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>M Studio - Authentic Travel Experiences</title>
-    <!-- Tailwind CSS -->
-    <script src="https://cdn.tailwindcss.com"></script>
     <!-- Font Awesome -->
-    <link href="https://cdn.jsdelivr.net/npm/font-awesome@4.7.0/css/font-awesome.min.css" rel="stylesheet">
+    <!-- <link href="https://cdn.jsdelivr.net/npm/font-awesome@4.7.0/css/font-awesome.min.css" rel="stylesheet"> -->
     <!-- Google Fonts -->
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <!-- <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet"> -->
     
-    <script>
-        tailwind.config = {
-            theme: {
-                extend: {
-                    colors: {
-                        primary: '#8B7355',
-                        secondary: '#D2B48C',
-                        light: '#F5F5DC',
-                        dark: '#3E3E3E',
-                        accent: '#A0522D'
-                    },
-                    fontFamily: {
-                        sans: ['Inter', 'sans-serif']
-                    },
-                    height: {
-                        '128': '32rem',
-                    }
-                }
-            }
+    <style>
+        /* Root Variables */
+        :root {
+            --primary: #8B7355;
+            --secondary: #D2B48C;
+            --light: #f8f8f8;
+            --dark: #3E3E3E;
+            --accent: #A0522D;
+            --white: #FFFFFF;
+            --gray-400: #9CA3AF;
+            --gray-500: #6B7280;
+            --gray-700: #374151;
+            --gray-800: #1F2937;
+            --shadow-sm: 0 1px 2px rgba(0, 0, 0, 0.05);
+            --shadow-md: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+            --shadow-lg: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
+            --transition-all-300: all 0.3s ease;
         }
-    </script>
-    
-    <style type="text/tailwindcss">
-        @layer utilities {
-            .text-shadow {
-                text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.3);
-            }
-            .bg-blur {
-                backdrop-filter: blur(8px);
-            }
-            .transition-all-300 {
-                transition: all 0.3s ease;
-            }
+        
+        /* Base Styles */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
         }
         
         html {
             scroll-behavior: smooth;
+            font-size: 16px;
         }
         
         body {
             font-family: 'Inter', sans-serif;
+            /* background-color: var(--light); */
+            color: var(--dark);
+            line-height: 1.6;
         }
         
+        /* Container */
+        .container {
+            width: 100%;
+            padding-right: 1rem;
+            padding-left: 1rem;
+            margin-right: auto;
+            margin-left: auto;
+        }
+        
+        @media (min-width: 640px) {
+            .container {
+                max-width: 640px;
+            }
+        }
+        
+        @media (min-width: 768px) {
+            .container {
+                max-width: 768px;
+            }
+        }
+        
+        @media (min-width: 1024px) {
+            .container {
+                max-width: 1024px;
+            }
+        }
+        
+        @media (min-width: 1280px) {
+            .container {
+                max-width: 1280px;
+            }
+        }
+        
+        /* Utility Classes */
+        /* .text-shadow {
+            text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.3);
+        } */
+        
+        .bg-blur {
+            backdrop-filter: blur(8px);
+        }
+        
+        .hidden {
+            display: none;
+        }
+        
+        .flex {
+            display: flex;
+        }
+        
+        .flex-col {
+            flex-direction: column;
+        }
+        
+        .justify-between {
+            justify-content: space-between;
+        }
+        
+        .items-center {
+            align-items: center;
+        }
+        
+        .items-start {
+            align-items: flex-start;
+        }
+        
+        .space-x-3 > * + * {
+            margin-left: 0.75rem;
+        }
+        
+        .space-x-6 > * + * {
+            margin-left: 1.5rem;
+        }
+        
+        .space-x-8 > * + * {
+            margin-left: 2rem;
+        }
+        
+        .space-y-3 > * + * {
+            margin-top: 0.75rem;
+        }
+        
+        .space-y-4 > * + * {
+            margin-top: 1rem;
+        }
+        
+        .space-y-6 > * + * {
+            margin-top: 1.5rem;
+        }
+        
+        .mt-4 {
+            margin-top: 1rem;
+        }
+        
+        .mt-6 {
+            margin-top: 1.5rem;
+        }
+        
+        .mt-8 {
+            margin-top: 2rem;
+        }
+        
+        .mt-10 {
+            margin-top: 2.5rem;
+        }
+        
+        .mt-12 {
+            margin-top: 3rem;
+        }
+        
+        .mb-2 {
+            margin-bottom: 0.5rem;
+        }
+        
+        .mb-3 {
+            margin-bottom: 0.75rem;
+        }
+        
+        .mb-4 {
+            margin-bottom: 1rem;
+        }
+        
+        .mb-6 {
+            margin-bottom: 1.5rem;
+        }
+        
+        .mb-10 {
+            margin-bottom: 2.5rem;
+        }
+        
+        .mb-12 {
+            margin-bottom: 3rem;
+        }
+        
+        .py-2 {
+            padding-top: 0.5rem;
+            padding-bottom: 0.5rem;
+        }
+        
+        .py-3 {
+            padding-top: 0.75rem;
+            padding-bottom: 0.75rem;
+        }
+        
+        .py-4 {
+            padding-top: 1rem;
+            padding-bottom: 1rem;
+        }
+        
+        .py-8 {
+            padding-top: 2rem;
+            padding-bottom: 2rem;
+        }
+        
+        .py-12 {
+            padding-top: 3rem;
+            padding-bottom: 3rem;
+        }
+        
+        .py-20 {
+            padding-top: 5rem;
+            padding-bottom: 5rem;
+        }
+        
+        .px-2 {
+            padding-left: 0.5rem;
+            padding-right: 0.5rem;
+        }
+        
+        .px-3 {
+            padding-left: 0.75rem;
+            padding-right: 0.75rem;
+        }
+        
+        .px-4 {
+            padding-left: 1rem;
+            padding-right: 1rem;
+        }
+        
+        .px-6 {
+            padding-left: 1.5rem;
+            padding-right: 1.5rem;
+        }
+        
+        .px-8 {
+            padding-left: 2rem;
+            padding-right: 2rem;
+        }
+        
+        .text-center {
+            text-align: center;
+        }
+        
+        .text-left {
+            text-align: left;
+        }
+        
+        .text-right {
+            text-align: right;
+        }
+        
+        .text-xs {
+            font-size: 0.75rem;
+            line-height: 1rem;
+        }
+        
+        .text-sm {
+            font-size: 0.875rem;
+            line-height: 1.25rem;
+        }
+        
+        .text-base {
+            font-size: 1rem;
+            line-height: 1.5rem;
+        }
+        
+        .text-lg {
+            font-size: 1.125rem;
+            line-height: 1.75rem;
+        }
+        
+        .text-xl {
+            font-size: 1.25rem;
+            line-height: 1.75rem;
+        }
+        
+        .text-2xl {
+            font-size: 1.5rem;
+            line-height: 2rem;
+        }
+        
+        .text-3xl {
+            font-size: 1.875rem;
+            line-height: 2.25rem;
+        }
+        
+        .text-4xl {
+            font-size: 2.25rem;
+            line-height: 2.5rem;
+        }
+        
+        .text-5xl {
+            font-size: 3rem;
+            line-height: 1;
+        }
+        
+        .text-7xl {
+            font-size: 4.5rem;
+            line-height: 1;
+        }
+        
+        .font-light {
+            font-weight: 300;
+        }
+        
+        .font-normal {
+            font-weight: 400;
+        }
+        
+        .font-medium {
+            font-weight: 500;
+        }
+        
+        .font-semibold {
+            font-weight: 600;
+        }
+        
+        .font-bold {
+            font-weight: 700;
+        }
+        
+        .italic {
+            font-style: italic;
+        }
+        
+        .rounded-lg {
+            border-radius: 0.5rem;
+        }
+        
+        .rounded-full {
+            border-radius: 9999px;
+        }
+        
+        .border {
+            border-width: 1px;
+        }
+        
+        .border-t {
+            border-top-width: 1px;
+        }
+        
+        .inline-block {
+            display: inline-block;
+        }
+        
+        .block {
+            display: block;
+        }
+        
+        .w-full {
+            width: 100%;
+        }
+        
+        .max-w-3xl {
+            max-width: 48rem;
+        }
+        
+        .max-w-5xl {
+            max-width: 64rem;
+        }
+        
+        .h-screen {
+            height: 100vh;
+        }
+        
+        .leading-relaxed {
+            line-height: 1.625;
+        }
+        
+        /* Custom Styles */
         .hero-section {
-            background-image: linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.6)), url('https://p3-flow-imagex-sign.byteimg.com/tos-cn-i-a9rns2rl98/rc/pc/super_tool/8074120e45574dc8b3ecf89bb9c2f30f~tplv-a9rns2rl98-image.image?rcl=202511051133454C67460235F30B83654E&rk3s=8e244e95&rrcfp=f06b921b&x-expires=1764905639&x-signature=MHBrRPest7HKFhnN%2BV2UILUpgdk%3D');
-            background-size: cover;
-            background-position: center;
-            background-attachment: fixed;
+            background: #f8f8f8;
+            display: flex ;
+            align-items: center;
+            justify-content: center;
+            color: #232323;
+            padding: 9rem 20px 6rem;
+            border-bottom: 1px solid rgba(139, 115, 85, 0.9);
         }
         
         .section-title::after {
@@ -66,11 +382,15 @@
             display: block;
             width: 50px;
             height: 2px;
-            background-color: #8B7355;
+            background-color: var(--primary);
             margin: 1rem 0;
         }
         
         .card {
+            background-color: var(--light);
+            padding: 2rem;
+            border-radius: 0.5rem;
+            box-shadow: var(--shadow-sm);
             transition: transform 0.3s ease, box-shadow 0.3s ease;
         }
         
@@ -80,57 +400,323 @@
         }
         
         .philosophy-tag {
+            background-color: var(--light);
+            padding: 0.5rem 1.5rem;
+            border-radius: 9999px;
+            color: var(--primary);
+            border: 1px solid var(--primary);
             transition: all 0.3s ease;
+            display: inline-block;
         }
         
         .philosophy-tag:hover {
-            background-color: #8B7355;
-            color: white;
+            background-color: var(--primary);
+            color: var(--white);
+        }
+        
+        /* Navigation */
+        nav {
+            position: fixed;
+            width: 100%;
+            background-color: var(--primary);
+            background-opacity: 0.9;
+            backdrop-filter: blur(8px);
+            z-index: 50;
+            box-shadow: var(--shadow-sm);
+        }
+        
+        nav a {
+            text-decoration: none;
+            color: var(--white);
+            transition: var(--transition-all-300);
+        }
+        
+        nav a:hover {
+            color: var(--primary);
+        }
+        
+        .desktop-nav {
+            display: none;
+        }
+        /* 文化 */
+        .culture-collage {
+            display: grid;
+            grid-template-columns: repeat(auto-fit,minmax(250px,1fr));
+            gap: 1rem;
+            margin-bottom: 2rem
+        }
+
+        .culture-item {
+            position: relative;
+            height: 200px;
+            border-radius: 0.5rem;
+            overflow: hidden
+        }
+
+        .culture-item img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.5s ease
+        }
+
+        .culture-item:hover img {
+            transform: scale(1.1)
+        }
+
+        .culture-item::after {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: linear-gradient(to top,rgba(0,0,0,0.7),transparent);
+            opacity: 0;
+            transition: opacity 0.3s ease
+        }
+
+        .culture-item:hover::after {
+            opacity: 1
+        }
+
+        .culture-caption {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            padding: 1rem;
+            color: var(--white);
+            transform: translateY(20px);
+            opacity: 0;
+            transition: all 0.3s ease
+        }
+
+        .culture-item:hover .culture-caption {
+            transform: translateY(0);
+            opacity: 1
+        }
+
+        .faq-item {
+            margin-bottom: 1rem;
+            border-bottom: 1px solid #e5e7eb
+        }
+
+        .faq-question {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 1rem 0;
+            cursor: pointer;
+            font-weight: 600
+        }
+
+        .faq-answer {
+            padding-bottom: 1rem;
+            color: var(--gray-700);
+            display: none
+        }
+
+        .faq-answer.active {
+            display: block
+        }
+
+        .faq-icon {
+            transition: transform 0.3s ease
+        }
+
+        .faq-icon.active {
+            transform: rotate(180deg)
+        }
+        @media (min-width: 768px) {
+            .desktop-nav {
+                display: flex;
+            }
+            
+            .mobile-menu-button {
+                display: none;
+            }
+        }
+        
+        .mobile-menu {
+            display: none;
+            background-color: var(--white);
+            width: 100%;
+            box-shadow: var(--shadow-md);
+        }
+        
+        .mobile-menu.active {
+            display: block;
+        }
+        
+        /* Buttons */
+        .btn-primary {
+            background-color: var(--primary);
+            color: var(--white);
+            font-weight: 500;
+            padding: 0.75rem 2rem;
+            border-radius: 9999px;
+            transition: var(--transition-all-300);
+            display: inline-block;
+            text-decoration: none;
+        }
+        
+        .btn-primary:hover {
+            background-color: rgba(139, 115, 85, 0.9);
+            color: var(--white);
+        }
+        
+        /* Grid */
+        .grid {
+            display: grid;
+            gap: 2rem;
+        }
+        
+        .grid-cols-1 {
+            grid-template-columns: repeat(1, minmax(0, 1fr));
+        }
+        
+        @media (min-width: 768px) {
+            .grid-cols-2 {
+                grid-template-columns: repeat(2, minmax(0, 1fr));
+            }
+            
+            .grid-cols-3 {
+                grid-template-columns: repeat(3, minmax(0, 1fr));
+            }
+        }
+        
+        /* Footer */
+        footer {
+            background-color: var(--dark);
+            color: var(--white);
+            padding: 3rem 0;
+        }
+        
+        footer a {
+            color: var(--gray-400);
+            transition: var(--transition-all-300);
+            text-decoration: none;
+        }
+        
+        footer a:hover {
+            color: var(--white);
+        }
+        
+        /* Lists */
+        ul {
+            list-style: none;
+        }
+        
+        /* Animations */
+        .fade-in-up {
+            opacity: 0;
+            transform: translateY(20px);
+            transition: opacity 0.6s ease, transform 0.6s ease;
+        }
+        
+        .fade-in-up.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+        
+        /* Responsive Adjustments */
+        @media (min-width: 768px) {
+            .md:flex {
+                display: flex;
+            }
+            
+            .md:flex-row {
+                flex-direction: row;
+            }
+            
+            .md:items-center {
+                align-items: center;
+            }
+            
+            .md:justify-between {
+                justify-content: space-between;
+            }
+            
+            .md:mb-0 {
+                margin-bottom: 0;
+            }
+            
+            .md:text-5xl {
+                font-size: 3rem;
+                line-height: 1;
+            }
+            
+            .md:text-7xl {
+                font-size: 4.5rem;
+                line-height: 1;
+            }
+            
+            .md:text-xl {
+                font-size: 1.25rem;
+                line-height: 1.75rem;
+            }
+            
+            .md:text-2xl {
+                font-size: 1.5rem;
+                line-height: 2rem;
+            }
+            
+            .md:text-3xl {
+                font-size: 1.875rem;
+                line-height: 2.25rem;
+            }
+            
+            .md:text-4xl {
+                font-size: 2.25rem;
+                line-height: 2.5rem;
+            }
         }
     </style>
 </head>
-<body class="bg-light text-dark">
+<body>
     <!-- Navigation -->
-    <nav class="fixed w-full bg-white bg-opacity-90 bg-blur z-50 shadow-sm">
+    <nav>
         <div class="container mx-auto px-4 py-4 flex justify-between items-center">
-            <a href="#" class="text-2xl font-bold text-primary">M Studio</a>
+            <a href="#" class="text-2xl font-bold" style="color: var(--white);">M Studio</a>
             
             <!-- Desktop Navigation -->
-            <div class="hidden md:flex space-x-8">
-                <a href="#about" class="text-dark hover:text-primary transition-all-300">About</a>
-                <a href="#what-i-do" class="text-dark hover:text-primary transition-all-300">What I Do</a>
-                <a href="#why-trust-me" class="text-dark hover:text-primary transition-all-300">Why Trust Me</a>
-                <a href="#what-i-offer" class="text-dark hover:text-primary transition-all-300">What I Offer</a>
-                <a href="#philosophy" class="text-dark hover:text-primary transition-all-300">Philosophy</a>
+            <div class="desktop-nav space-x-8">
+                <a href="#about">About</a>
+                <a href="#what-i-do">What I Do</a>
+                <a href="#why-trust-me">Why Trust Me</a>
+                <a href="#what-i-offer">What I Offer</a>
+                <a href="#philosophy">Philosophy</a>
             </div>
             
             <!-- Mobile Navigation Toggle -->
-            <button id="mobile-menu-button" class="md:hidden text-dark focus:outline-none">
+            <button id="mobile-menu-button" class="mobile-menu-button text-dark focus:outline-none">
                 <i class="fa fa-bars text-xl"></i>
             </button>
         </div>
         
         <!-- Mobile Navigation Menu -->
-        <div id="mobile-menu" class="hidden md:hidden bg-white w-full shadow-md">
+        <div id="mobile-menu" class="mobile-menu">
             <div class="container mx-auto px-4 py-2 flex flex-col space-y-3">
-                <a href="#about" class="text-dark hover:text-primary py-2 transition-all-300">About</a>
-                <a href="#what-i-do" class="text-dark hover:text-primary py-2 transition-all-300">What I Do</a>
-                <a href="#why-trust-me" class="text-dark hover:text-primary py-2 transition-all-300">Why Trust Me</a>
-                <a href="#what-i-offer" class="text-dark hover:text-primary py-2 transition-all-300">What I Offer</a>
-                <a href="#philosophy" class="text-dark hover:text-primary py-2 transition-all-300">Philosophy</a>
+                <a href="#about" class="py-2">About</a>
+                <a href="#what-i-do" class="py-2">What I Do</a>
+                <a href="#why-trust-me" class="py-2">Why Trust Me</a>
+                <a href="#what-i-offer" class="py-2">What I Offer</a>
+                <a href="#philosophy" class="py-2">Philosophy</a>
             </div>
         </div>
     </nav>
 
     <!-- Hero Section -->
-    <section class="hero-section h-screen flex items-center justify-center text-white">
+    <section class="hero-section">
         <div class="container mx-auto px-4 text-center">
+            <img src="./cat.png" alt="">
             <h1 class="text-5xl md:text-7xl font-bold mb-6 text-shadow">M Studio</h1>
-            <p class="text-xl md:text-2xl max-w-3xl mx-auto text-shadow">
+            <p class="text-xl md:text-2xl mx-auto text-shadow">
                 We don't chase trends—we craft authentic journeys into the heart of local life beyond the postcard-perfect scenery.
             </p>
             <div class="mt-12">
-                <a href="#about" class="bg-primary hover:bg-opacity-90 text-white font-medium py-3 px-8 rounded-full transition-all-300 inline-block">
+                <a href="#about" class="btn-primary">
                     Discover More
                 </a>
             </div>
@@ -138,9 +724,9 @@
     </section>
 
     <!-- About Section -->
-    <section id="about" class="py-20 bg-white">
+    <section id="about" class="py-20" style="background-color: var(--white);">
         <div class="container mx-auto px-4">
-            <h2 class="text-3xl md:text-4xl font-bold mb-12 section-title">Who Am I?</h2>
+            <h2 class="text-3xl md:text-4xl font-bold mb-12 section-title fade-in-up">Who Am I?</h2>
             <div class="max-w-3xl mx-auto">
                 <p class="text-lg leading-relaxed mb-6">
                     I'm [Your Name], a traveler and product designer who's spent years wandering the planet, savoring every detail. To me, true travel isn't about checking off distant landmarks—it's about stepping into someone else's daily rhythm and feeling the pulse of a real, lived experience.
@@ -150,9 +736,9 @@
     </section>
 
     <!-- What I Do Section -->
-    <section id="what-i-do" class="py-20 bg-light">
+    <section id="what-i-do" class="py-20" style="background-color: var(--light);">
         <div class="container mx-auto px-4">
-            <h2 class="text-3xl md:text-4xl font-bold mb-12 section-title">What I Do</h2>
+            <h2 class="text-3xl md:text-4xl font-bold mb-12 section-title fade-in-up">What I Do</h2>
             <div class="max-w-3xl mx-auto">
                 <p class="text-lg leading-relaxed mb-6">
                     I specialize in creating China travel experiences that feel like home—not just passing through—for independent explorers and 小众爱好者 (lovers of the offbeat). My work weaves 小众 stories, in-depth cultural encounters, and heartfelt human connections into one-of-a-kind itineraries, brought to life through honest, relatable content.
@@ -162,96 +748,131 @@
     </section>
 
     <!-- Why Trust Me Section -->
-    <section id="why-trust-me" class="py-20 bg-white">
+    <section id="why-trust-me" class="py-20" style="background-color: var(--white);">
         <div class="container mx-auto px-4">
-            <h2 class="text-3xl md:text-4xl font-bold mb-12 section-title">Why Trust Me?</h2>
+            <h2 class="text-3xl md:text-4xl font-bold mb-12 section-title fade-in-up">Why Trust Me?</h2>
             
             <div class="grid grid-cols-1 md:grid-cols-3 gap-8 max-w-5xl mx-auto">
                 <!-- Trust Item 1 -->
-                <div class="card bg-light p-8 rounded-lg shadow-sm">
-                    <div class="text-primary text-3xl mb-4">
+                <div class="card fade-in-up">
+                    <div class="mb-4" style="color: var(--primary); font-size: 2rem;">
                         <i class="fa fa-compass"></i>
                     </div>
                     <h3 class="text-xl font-semibold mb-3">Traveler's Soul × Designer's Eye</h3>
-                    <p class="text-gray-700">
+                    <p style="color: var(--gray-700);">
                         With 10+ years of global exploration and industry expertise, I blend the curiosity of a lifelong adventurer with the precision of a designer. I know what makes a great product—and I understand the subtle emotions that define your journey.
                     </p>
                 </div>
                 
                 <!-- Trust Item 2 -->
-                <div class="card bg-light p-8 rounded-lg shadow-sm">
-                    <div class="text-primary text-3xl mb-4">
+                <div class="card fade-in-up">
+                    <div class="mb-4" style="color: var(--primary); font-size: 2rem;">
                         <i class="fa fa-heart"></i>
                     </div>
                     <h3 class="text-xl font-semibold mb-3">Depth Over Hype</h3>
-                    <p class="text-gray-700">
+                    <p style="color: var(--gray-700);">
                         I'm not interested in fleeting trends. Instead, I seek timeless experiences: wandering a local market, apprenticing with a craftsman for an afternoon, or uncovering the youthful spirit of an ancient city.
                     </p>
                 </div>
                 
                 <!-- Trust Item 3 -->
-                <div class="card bg-light p-8 rounded-lg shadow-sm">
-                    <div class="text-primary text-3xl mb-4">
+                <div class="card fade-in-up">
+                    <div class="mb-4" style="color: var(--primary); font-size: 2rem;">
                         <i class="fa fa-book"></i>
                     </div>
                     <h3 class="text-xl font-semibold mb-3">Stories That Resonate</h3>
-                    <p class="text-gray-700">
+                    <p style="color: var(--gray-700);">
                         My strength lies in storytelling—sharing destination narratives with warmth and sincerity, so you'll feel connected to far-off places before you even set foot there.
                     </p>
                 </div>
             </div>
         </div>
     </section>
+   <!-- Culture Experiences Section -->
+    <section id="culture-experiences" class="py-20" style="background-color: var(--white);">
+        <div class="container mx-auto px-4">
+            <h2 class="text-3xl md:text-4xl font-bold mb-6 section-title fade-in-up" data-lang-key="cultural-experiences">Cultural Experiences</h2>
+            <p class="text-lg mb-12 max-w-3xl" data-lang-key="unique-journeys">Discover unique cultural journeys that go beyond the typical tourist experience.</p>
+            
+            <!-- Culture Collage -->
+            <div class="culture-collage mb-12 fade-in-up">
+                <div class="culture-item">
+                    <img src="https://p3-flow-imagex-sign.byteimg.com/tos-cn-i-a9rns2rl98/rc/pc/super_tool/59dea76f9ad7453b9dc9119c82edb65e~tplv-a9rns2rl98-image.image?rcl=20251105143424FB0AA8BCD565F5BEF3E1&rk3s=8e244e95&rrcfp=f06b921b&x-expires=1764916493&x-signature=Yw5pdrHTjhEcMTWwa2937HRE4BE%3D" alt="Chinese Cultural Elements">
+                    <div class="culture-caption">
+                        <h3 data-lang-key="traditional-modern">Traditional & Modern Fusion</h3>
+                    </div>
+                </div>
+                <div class="culture-item">
+                    <img src="https://p11-doubao-search-sign.byteimg.com/labis/fd48029926628b769a34ab32c33ba1e6~tplv-be4g95zd3a-image.jpeg?rk3s=542c0f93&x-expires=1777876500&x-signature=1ecWGNjSswYWwjhqhhI813Bwylk%3D" alt="Paper Cutting Workshop">
+                    <div class="culture-caption">
+                        <h3 data-lang-key="paper-cutting">Paper Cutting Workshop</h3>
+                    </div>
+                </div>
+                <div class="culture-item">
+                    <img src="https://p11-doubao-search-sign.byteimg.com/labis/7f74764b3225db37a2a0cf0cbe9dcd79~tplv-be4g95zd3a-image.jpeg?rk3s=542c0f93&x-expires=1777876500&x-signature=jd0J6d21yiDdRXU1DFTq1v5REvI%3D" alt="Tai Chi Class">
+                    <div class="culture-caption">
+                        <h3 data-lang-key="tai-chi">Tai Chi Class</h3>
+                    </div>
+                </div>
+                <div class="culture-item">
+                    <img src="https://p26-doubao-search-sign.byteimg.com/tos-cn-i-be4g95zd3a/1316995354298417153~tplv-be4g95zd3a-image.jpeg?rk3s=542c0f93&x-expires=1777876500&x-signature=K6cZ2V47br0FhZsGUsDeEoa0dS8%3D" alt="Chinese Cuisine">
+                    <div class="culture-caption">
+                        <h3 data-lang-key="cuisine">Local Cuisine</h3>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
 
     <!-- What I Offer Section -->
-    <section id="what-i-offer" class="py-20 bg-light">
+    <section id="what-i-offer" class="py-20" style="background-color: var(--light);">
         <div class="container mx-auto px-4">
-            <h2 class="text-3xl md:text-4xl font-bold mb-12 section-title">What I Offer</h2>
+            <h2 class="text-3xl md:text-4xl font-bold mb-12 section-title fade-in-up">What I Offer</h2>
             
             <div class="grid grid-cols-1 md:grid-cols-2 gap-12 max-w-5xl mx-auto">
                 <!-- Offer Item 1 -->
-                <div>
+                <div class="fade-in-up">
                     <div class="flex items-center mb-6">
-                        <div class="text-primary text-3xl mr-4">
+                        <div class="mr-4" style="color: var(--primary); font-size: 2rem;">
                             <i class="fa fa-building"></i>
                         </div>
                         <h3 class="text-2xl font-semibold">Content Marketing Partnerships</h3>
-                        <span class="ml-3 bg-primary text-white text-xs px-2 py-1 rounded-full">For B2B Clients</span>
+                        <span class="ml-3" style="background-color: var(--primary); color: var(--white); font-size: 0.75rem; padding: 0.25rem 0.5rem; border-radius: 9999px;">For B2B Clients</span>
                     </div>
                     
-                    <p class="text-gray-700 mb-4">For destinations, hotels, or cultural projects:</p>
+                    <p style="color: var(--gray-700); margin-bottom: 1rem;">For destinations, hotels, or cultural projects:</p>
                     
                     <ul class="space-y-3">
                         <li class="flex items-start">
-                            <i class="fa fa-check-circle text-primary mt-1 mr-3"></i>
+                            <i class="fa fa-check-circle mt-1 mr-3" style="color: var(--primary);"></i>
                             <span><strong>Content-Driven Product Design:</strong> Transform your resources into unforgettable, shareable experiences.</span>
                         </li>
                         <li class="flex items-start">
-                            <i class="fa fa-check-circle text-primary mt-1 mr-3"></i>
+                            <i class="fa fa-check-circle mt-1 mr-3" style="color: var(--primary);"></i>
                             <span><strong>Global Social Storytelling:</strong> Engage Gen Z audiences on platforms like Instagram and TikTok with narratives tailored to their language and style.</span>
                         </li>
                     </ul>
                 </div>
                 
                 <!-- Offer Item 2 -->
-                <div>
+                <div class="fade-in-up">
                     <div class="flex items-center mb-6">
-                        <div class="text-primary text-3xl mr-4">
+                        <div class="mr-4" style="color: var(--primary); font-size: 2rem;">
                             <i class="fa fa-user"></i>
                         </div>
                         <h3 class="text-2xl font-semibold">Custom Travel Design</h3>
-                        <span class="ml-3 bg-primary text-white text-xs px-2 py-1 rounded-full">For C 端 Travelers</span>
+                        <span class="ml-3" style="background-color: var(--primary); color: var(--white); font-size: 0.75rem; padding: 0.25rem 0.5rem; border-radius: 9999px;">For C 端 Travelers</span>
                     </div>
                     
-                    <p class="text-gray-700 mb-4">For curious explorers:</p>
+                    <p style="color: var(--gray-700); margin-bottom: 1rem;">For curious explorers:</p>
                     
                     <ul class="space-y-3">
                         <li class="flex items-start">
-                            <i class="fa fa-check-circle text-primary mt-1 mr-3"></i>
+                            <i class="fa fa-check-circle mt-1 mr-3" style="color: var(--primary);"></i>
                             <span><strong>Personalized Itineraries:</strong> Create your very own China's Hidden Gems Explorer's Guide.</span>
                         </li>
                         <li class="flex items-start">
-                            <i class="fa fa-check-circle text-primary mt-1 mr-3"></i>
+                            <i class="fa fa-check-circle mt-1 mr-3" style="color: var(--primary);"></i>
                             <span><strong>End-to-End Concierge Service:</strong> Seamless booking of accommodations, transportation, and unique activities—so you can focus on diving deep into the culture.</span>
                         </li>
                     </ul>
@@ -261,24 +882,24 @@
     </section>
 
     <!-- Philosophy Section -->
-    <section id="philosophy" class="py-20 bg-white">
+    <section id="philosophy" class="py-20" style="background-color: var(--white);">
         <div class="container mx-auto px-4">
-            <h2 class="text-3xl md:text-4xl font-bold mb-12 section-title">My Philosophy</h2>
+            <h2 class="text-3xl md:text-4xl font-bold mb-12 section-title fade-in-up">My Philosophy</h2>
             
-            <div class="max-w-3xl mx-auto">
-                <div class="flex flex-wrap gap-4 mb-10">
-                    <span class="philosophy-tag bg-light px-6 py-2 rounded-full text-primary border border-primary">
+            <div class="mx-auto">
+                <div class="mb-10" style="display: flex; flex-wrap: wrap; gap: 1rem;">
+                    <span class="philosophy-tag">
                         #ExploringWithHeart
                     </span>
-                    <span class="philosophy-tag bg-light px-6 py-2 rounded-full text-primary border border-primary">
+                    <span class="philosophy-tag">
                         #DesignedLikeAFriend
                     </span>
-                    <span class="philosophy-tag bg-light px-6 py-2 rounded-full text-primary border border-primary">
+                    <span class="philosophy-tag">
                         #TravelBackToYourself
                     </span>
                 </div>
                 
-                <div class="text-center">
+                <div class="">
                     <h3 class="text-2xl font-semibold mb-4">M Studio</h3>
                     <p class="text-lg italic">
                         Let's discover the stories behind the scenery—together.
@@ -289,29 +910,29 @@
     </section>
 
     <!-- Footer -->
-    <footer class="bg-dark text-white py-12">
+    <footer>
         <div class="container mx-auto px-4">
             <div class="flex flex-col md:flex-row justify-between items-center">
                 <div class="mb-6 md:mb-0">
                     <h3 class="text-2xl font-bold mb-2">M Studio</h3>
-                    <p class="text-gray-400">Authentic travel experiences beyond the postcard</p>
+                    <p style="color: var(--gray-400);">Authentic travel experiences beyond the postcard</p>
                 </div>
                 
                 <div class="flex space-x-6">
-                    <a href="#" class="text-gray-400 hover:text-white transition-all-300">
+                    <a href="#" style="color: var(--gray-400); transition: var(--transition-all-300);">
                         <i class="fa fa-instagram text-xl"></i>
                     </a>
-                    <a href="#" class="text-gray-400 hover:text-white transition-all-300">
+                    <a href="#" style="color: var(--gray-400); transition: var(--transition-all-300);">
                         <i class="fa fa-weixin text-xl"></i>
                     </a>
-                    <a href="#" class="text-gray-400 hover:text-white transition-all-300">
+                    <a href="#" style="color: var(--gray-400); transition: var(--transition-all-300);">
                         <i class="fa fa-envelope text-xl"></i>
                     </a>
                 </div>
             </div>
             
-            <div class="border-t border-gray-800 mt-8 pt-8 text-center text-gray-500">
-                <p>&copy; 2025 M Studio. All rights reserved.</p>
+            <div class="border-t mt-8 pt-8 text-center" style="border-color: var(--gray-800);">
+                <p style="color: var(--gray-500);">&copy; 2025 M Studio. All rights reserved.</p>
             </div>
         </div>
     </footer>
@@ -320,13 +941,13 @@
         // Mobile Menu Toggle
         document.getElementById('mobile-menu-button').addEventListener('click', function() {
             const mobileMenu = document.getElementById('mobile-menu');
-            mobileMenu.classList.toggle('hidden');
+            mobileMenu.classList.toggle('active');
         });
         
         // Close mobile menu when clicking on a link
         document.querySelectorAll('#mobile-menu a').forEach(link => {
             link.addEventListener('click', function() {
-                document.getElementById('mobile-menu').classList.add('hidden');
+                document.getElementById('mobile-menu').classList.remove('active');
             });
         });
         
@@ -334,35 +955,25 @@
         window.addEventListener('scroll', function() {
             const nav = document.querySelector('nav');
             if (window.scrollY > 50) {
-                nav.classList.add('shadow-md');
-                nav.classList.remove('shadow-sm');
+                nav.style.boxShadow = '0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06)';
             } else {
-                nav.classList.remove('shadow-md');
-                nav.classList.add('shadow-sm');
+                nav.style.boxShadow = '0 1px 2px rgba(0, 0, 0, 0.05)';
             }
         });
         
         // Animate elements on scroll
         const animateOnScroll = function() {
-            const elements = document.querySelectorAll('.card, .section-title');
+            const elements = document.querySelectorAll('.fade-in-up');
             
             elements.forEach(element => {
                 const elementPosition = element.getBoundingClientRect().top;
                 const windowHeight = window.innerHeight;
                 
                 if (elementPosition < windowHeight - 100) {
-                    element.style.opacity = '1';
-                    element.style.transform = 'translateY(0)';
+                    element.classList.add('visible');
                 }
             });
         };
-        
-        // Initialize element styles
-        document.querySelectorAll('.card, .section-title').forEach(element => {
-            element.style.opacity = '0';
-            element.style.transform = 'translateY(20px)';
-            element.style.transition = 'opacity 0.6s ease, transform 0.6s ease';
-        });
         
         // Run animation on load and scroll
         window.addEventListener('load', animateOnScroll);
