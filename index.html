@@ -1,5 +1,372 @@
-<html>
-  <body>
-    ddddd
-  </body>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>M Studio - Authentic Travel Experiences</title>
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Font Awesome -->
+    <link href="https://cdn.jsdelivr.net/npm/font-awesome@4.7.0/css/font-awesome.min.css" rel="stylesheet">
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        primary: '#8B7355',
+                        secondary: '#D2B48C',
+                        light: '#F5F5DC',
+                        dark: '#3E3E3E',
+                        accent: '#A0522D'
+                    },
+                    fontFamily: {
+                        sans: ['Inter', 'sans-serif']
+                    },
+                    height: {
+                        '128': '32rem',
+                    }
+                }
+            }
+        }
+    </script>
+    
+    <style type="text/tailwindcss">
+        @layer utilities {
+            .text-shadow {
+                text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.3);
+            }
+            .bg-blur {
+                backdrop-filter: blur(8px);
+            }
+            .transition-all-300 {
+                transition: all 0.3s ease;
+            }
+        }
+        
+        html {
+            scroll-behavior: smooth;
+        }
+        
+        body {
+            font-family: 'Inter', sans-serif;
+        }
+        
+        .hero-section {
+            background-image: linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.6)), url('https://p3-flow-imagex-sign.byteimg.com/tos-cn-i-a9rns2rl98/rc/pc/super_tool/8074120e45574dc8b3ecf89bb9c2f30f~tplv-a9rns2rl98-image.image?rcl=202511051133454C67460235F30B83654E&rk3s=8e244e95&rrcfp=f06b921b&x-expires=1764905639&x-signature=MHBrRPest7HKFhnN%2BV2UILUpgdk%3D');
+            background-size: cover;
+            background-position: center;
+            background-attachment: fixed;
+        }
+        
+        .section-title::after {
+            content: '';
+            display: block;
+            width: 50px;
+            height: 2px;
+            background-color: #8B7355;
+            margin: 1rem 0;
+        }
+        
+        .card {
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+        
+        .card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
+        }
+        
+        .philosophy-tag {
+            transition: all 0.3s ease;
+        }
+        
+        .philosophy-tag:hover {
+            background-color: #8B7355;
+            color: white;
+        }
+    </style>
+</head>
+<body class="bg-light text-dark">
+    <!-- Navigation -->
+    <nav class="fixed w-full bg-white bg-opacity-90 bg-blur z-50 shadow-sm">
+        <div class="container mx-auto px-4 py-4 flex justify-between items-center">
+            <a href="#" class="text-2xl font-bold text-primary">M Studio</a>
+            
+            <!-- Desktop Navigation -->
+            <div class="hidden md:flex space-x-8">
+                <a href="#about" class="text-dark hover:text-primary transition-all-300">About</a>
+                <a href="#what-i-do" class="text-dark hover:text-primary transition-all-300">What I Do</a>
+                <a href="#why-trust-me" class="text-dark hover:text-primary transition-all-300">Why Trust Me</a>
+                <a href="#what-i-offer" class="text-dark hover:text-primary transition-all-300">What I Offer</a>
+                <a href="#philosophy" class="text-dark hover:text-primary transition-all-300">Philosophy</a>
+            </div>
+            
+            <!-- Mobile Navigation Toggle -->
+            <button id="mobile-menu-button" class="md:hidden text-dark focus:outline-none">
+                <i class="fa fa-bars text-xl"></i>
+            </button>
+        </div>
+        
+        <!-- Mobile Navigation Menu -->
+        <div id="mobile-menu" class="hidden md:hidden bg-white w-full shadow-md">
+            <div class="container mx-auto px-4 py-2 flex flex-col space-y-3">
+                <a href="#about" class="text-dark hover:text-primary py-2 transition-all-300">About</a>
+                <a href="#what-i-do" class="text-dark hover:text-primary py-2 transition-all-300">What I Do</a>
+                <a href="#why-trust-me" class="text-dark hover:text-primary py-2 transition-all-300">Why Trust Me</a>
+                <a href="#what-i-offer" class="text-dark hover:text-primary py-2 transition-all-300">What I Offer</a>
+                <a href="#philosophy" class="text-dark hover:text-primary py-2 transition-all-300">Philosophy</a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="hero-section h-screen flex items-center justify-center text-white">
+        <div class="container mx-auto px-4 text-center">
+            <h1 class="text-5xl md:text-7xl font-bold mb-6 text-shadow">M Studio</h1>
+            <p class="text-xl md:text-2xl max-w-3xl mx-auto text-shadow">
+                We don't chase trends—we craft authentic journeys into the heart of local life beyond the postcard-perfect scenery.
+            </p>
+            <div class="mt-12">
+                <a href="#about" class="bg-primary hover:bg-opacity-90 text-white font-medium py-3 px-8 rounded-full transition-all-300 inline-block">
+                    Discover More
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section id="about" class="py-20 bg-white">
+        <div class="container mx-auto px-4">
+            <h2 class="text-3xl md:text-4xl font-bold mb-12 section-title">Who Am I?</h2>
+            <div class="max-w-3xl mx-auto">
+                <p class="text-lg leading-relaxed mb-6">
+                    I'm [Your Name], a traveler and product designer who's spent years wandering the planet, savoring every detail. To me, true travel isn't about checking off distant landmarks—it's about stepping into someone else's daily rhythm and feeling the pulse of a real, lived experience.
+                </p>
+            </div>
+        </div>
+    </section>
+
+    <!-- What I Do Section -->
+    <section id="what-i-do" class="py-20 bg-light">
+        <div class="container mx-auto px-4">
+            <h2 class="text-3xl md:text-4xl font-bold mb-12 section-title">What I Do</h2>
+            <div class="max-w-3xl mx-auto">
+                <p class="text-lg leading-relaxed mb-6">
+                    I specialize in creating China travel experiences that feel like home—not just passing through—for independent explorers and 小众爱好者 (lovers of the offbeat). My work weaves 小众 stories, in-depth cultural encounters, and heartfelt human connections into one-of-a-kind itineraries, brought to life through honest, relatable content.
+                </p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Why Trust Me Section -->
+    <section id="why-trust-me" class="py-20 bg-white">
+        <div class="container mx-auto px-4">
+            <h2 class="text-3xl md:text-4xl font-bold mb-12 section-title">Why Trust Me?</h2>
+            
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8 max-w-5xl mx-auto">
+                <!-- Trust Item 1 -->
+                <div class="card bg-light p-8 rounded-lg shadow-sm">
+                    <div class="text-primary text-3xl mb-4">
+                        <i class="fa fa-compass"></i>
+                    </div>
+                    <h3 class="text-xl font-semibold mb-3">Traveler's Soul × Designer's Eye</h3>
+                    <p class="text-gray-700">
+                        With 10+ years of global exploration and industry expertise, I blend the curiosity of a lifelong adventurer with the precision of a designer. I know what makes a great product—and I understand the subtle emotions that define your journey.
+                    </p>
+                </div>
+                
+                <!-- Trust Item 2 -->
+                <div class="card bg-light p-8 rounded-lg shadow-sm">
+                    <div class="text-primary text-3xl mb-4">
+                        <i class="fa fa-heart"></i>
+                    </div>
+                    <h3 class="text-xl font-semibold mb-3">Depth Over Hype</h3>
+                    <p class="text-gray-700">
+                        I'm not interested in fleeting trends. Instead, I seek timeless experiences: wandering a local market, apprenticing with a craftsman for an afternoon, or uncovering the youthful spirit of an ancient city.
+                    </p>
+                </div>
+                
+                <!-- Trust Item 3 -->
+                <div class="card bg-light p-8 rounded-lg shadow-sm">
+                    <div class="text-primary text-3xl mb-4">
+                        <i class="fa fa-book"></i>
+                    </div>
+                    <h3 class="text-xl font-semibold mb-3">Stories That Resonate</h3>
+                    <p class="text-gray-700">
+                        My strength lies in storytelling—sharing destination narratives with warmth and sincerity, so you'll feel connected to far-off places before you even set foot there.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- What I Offer Section -->
+    <section id="what-i-offer" class="py-20 bg-light">
+        <div class="container mx-auto px-4">
+            <h2 class="text-3xl md:text-4xl font-bold mb-12 section-title">What I Offer</h2>
+            
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-12 max-w-5xl mx-auto">
+                <!-- Offer Item 1 -->
+                <div>
+                    <div class="flex items-center mb-6">
+                        <div class="text-primary text-3xl mr-4">
+                            <i class="fa fa-building"></i>
+                        </div>
+                        <h3 class="text-2xl font-semibold">Content Marketing Partnerships</h3>
+                        <span class="ml-3 bg-primary text-white text-xs px-2 py-1 rounded-full">For B2B Clients</span>
+                    </div>
+                    
+                    <p class="text-gray-700 mb-4">For destinations, hotels, or cultural projects:</p>
+                    
+                    <ul class="space-y-3">
+                        <li class="flex items-start">
+                            <i class="fa fa-check-circle text-primary mt-1 mr-3"></i>
+                            <span><strong>Content-Driven Product Design:</strong> Transform your resources into unforgettable, shareable experiences.</span>
+                        </li>
+                        <li class="flex items-start">
+                            <i class="fa fa-check-circle text-primary mt-1 mr-3"></i>
+                            <span><strong>Global Social Storytelling:</strong> Engage Gen Z audiences on platforms like Instagram and TikTok with narratives tailored to their language and style.</span>
+                        </li>
+                    </ul>
+                </div>
+                
+                <!-- Offer Item 2 -->
+                <div>
+                    <div class="flex items-center mb-6">
+                        <div class="text-primary text-3xl mr-4">
+                            <i class="fa fa-user"></i>
+                        </div>
+                        <h3 class="text-2xl font-semibold">Custom Travel Design</h3>
+                        <span class="ml-3 bg-primary text-white text-xs px-2 py-1 rounded-full">For C 端 Travelers</span>
+                    </div>
+                    
+                    <p class="text-gray-700 mb-4">For curious explorers:</p>
+                    
+                    <ul class="space-y-3">
+                        <li class="flex items-start">
+                            <i class="fa fa-check-circle text-primary mt-1 mr-3"></i>
+                            <span><strong>Personalized Itineraries:</strong> Create your very own China's Hidden Gems Explorer's Guide.</span>
+                        </li>
+                        <li class="flex items-start">
+                            <i class="fa fa-check-circle text-primary mt-1 mr-3"></i>
+                            <span><strong>End-to-End Concierge Service:</strong> Seamless booking of accommodations, transportation, and unique activities—so you can focus on diving deep into the culture.</span>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Philosophy Section -->
+    <section id="philosophy" class="py-20 bg-white">
+        <div class="container mx-auto px-4">
+            <h2 class="text-3xl md:text-4xl font-bold mb-12 section-title">My Philosophy</h2>
+            
+            <div class="max-w-3xl mx-auto">
+                <div class="flex flex-wrap gap-4 mb-10">
+                    <span class="philosophy-tag bg-light px-6 py-2 rounded-full text-primary border border-primary">
+                        #ExploringWithHeart
+                    </span>
+                    <span class="philosophy-tag bg-light px-6 py-2 rounded-full text-primary border border-primary">
+                        #DesignedLikeAFriend
+                    </span>
+                    <span class="philosophy-tag bg-light px-6 py-2 rounded-full text-primary border border-primary">
+                        #TravelBackToYourself
+                    </span>
+                </div>
+                
+                <div class="text-center">
+                    <h3 class="text-2xl font-semibold mb-4">M Studio</h3>
+                    <p class="text-lg italic">
+                        Let's discover the stories behind the scenery—together.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-dark text-white py-12">
+        <div class="container mx-auto px-4">
+            <div class="flex flex-col md:flex-row justify-between items-center">
+                <div class="mb-6 md:mb-0">
+                    <h3 class="text-2xl font-bold mb-2">M Studio</h3>
+                    <p class="text-gray-400">Authentic travel experiences beyond the postcard</p>
+                </div>
+                
+                <div class="flex space-x-6">
+                    <a href="#" class="text-gray-400 hover:text-white transition-all-300">
+                        <i class="fa fa-instagram text-xl"></i>
+                    </a>
+                    <a href="#" class="text-gray-400 hover:text-white transition-all-300">
+                        <i class="fa fa-weixin text-xl"></i>
+                    </a>
+                    <a href="#" class="text-gray-400 hover:text-white transition-all-300">
+                        <i class="fa fa-envelope text-xl"></i>
+                    </a>
+                </div>
+            </div>
+            
+            <div class="border-t border-gray-800 mt-8 pt-8 text-center text-gray-500">
+                <p>&copy; 2025 M Studio. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Mobile Menu Toggle
+        document.getElementById('mobile-menu-button').addEventListener('click', function() {
+            const mobileMenu = document.getElementById('mobile-menu');
+            mobileMenu.classList.toggle('hidden');
+        });
+        
+        // Close mobile menu when clicking on a link
+        document.querySelectorAll('#mobile-menu a').forEach(link => {
+            link.addEventListener('click', function() {
+                document.getElementById('mobile-menu').classList.add('hidden');
+            });
+        });
+        
+        // Add scroll effect to navigation
+        window.addEventListener('scroll', function() {
+            const nav = document.querySelector('nav');
+            if (window.scrollY > 50) {
+                nav.classList.add('shadow-md');
+                nav.classList.remove('shadow-sm');
+            } else {
+                nav.classList.remove('shadow-md');
+                nav.classList.add('shadow-sm');
+            }
+        });
+        
+        // Animate elements on scroll
+        const animateOnScroll = function() {
+            const elements = document.querySelectorAll('.card, .section-title');
+            
+            elements.forEach(element => {
+                const elementPosition = element.getBoundingClientRect().top;
+                const windowHeight = window.innerHeight;
+                
+                if (elementPosition < windowHeight - 100) {
+                    element.style.opacity = '1';
+                    element.style.transform = 'translateY(0)';
+                }
+            });
+        };
+        
+        // Initialize element styles
+        document.querySelectorAll('.card, .section-title').forEach(element => {
+            element.style.opacity = '0';
+            element.style.transform = 'translateY(20px)';
+            element.style.transition = 'opacity 0.6s ease, transform 0.6s ease';
+        });
+        
+        // Run animation on load and scroll
+        window.addEventListener('load', animateOnScroll);
+        window.addEventListener('scroll', animateOnScroll);
+    </script>
+</body>
 </html>
